@@ -15,18 +15,14 @@ int main() {
 	if ((pid = fork()) < 0) {
 		perror("FORK ERROR");
 	} else if (pid == 0) { // Child process
-		cout 	<< "child process:" << endl;		
+		cout << "child process:\n"
+             << "pid  = " << getpid() << "\n"
+             << "ppid = " << getppid() << endl;
 	} else { // parent
-		cout 	<< "parent:" << endl;
-	}
-
-	cout 	<< "pid  = " << getpid() << "\n"
-			<< "ppid = " << getppid() << endl;
-
-
-	// Formatting
-	if (pid != 0) { // parent
-		cout << "\nforking\n" << endl ;
+        cout << "parent process:\n"
+             << "pid  = " << getpid() << "\n"
+             << "ppid = " << getppid() << "\n"
+             << "\nforking\n" << endl;
 	}
 
 	return EXIT_SUCCESS;
